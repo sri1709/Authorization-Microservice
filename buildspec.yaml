@@ -14,7 +14,6 @@ phases:
     commands:
     - echo Build started on `date`
     - echo Building java
-    - cd Authorization-Microservice
     - echo $IMAGE_URI
     - mvn clean package -Ddockerfile.skip
     - echo Building the docker image
@@ -28,7 +27,7 @@ phases:
     - docker push $IMAGE_URI
     - echo Writing definition files
     - echo push completed
-    - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $IMAGE_URI >$CODEBUILD_SRC_DIR/imagedefinitions.json
+    - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $IMAGE_URI >imagedefinitions.json
 artifacts:
   files:
   - imagedefinitions.json
