@@ -18,15 +18,15 @@ phases:
     - echo $IMAGE_URI
     - mvn clean package -Ddockerfile.skip
     - echo Building the docker image
-    - docker build -t Authorization-Microservice .
-    - docker tag Authorization-Microservice 156962844638.dkr.ecr.us-east-1.amazonaws.com/authorization-microservice-877629:Authorization-Microservice
+    - docker build -tag authorization-microservice .
+    - docker tag authorization-sicroservice 156962844638.dkr.ecr.us-east-1.amazonaws.com/authorization-microservice-877629:authorization-microservice
   post_build:
     commands:
     - printenv
     - echo Build completed on `date`
     - echo $(docker images)
     - echo Pushing docker image
-    - docker push 156962844638.dkr.ecr.us-east-1.amazonaws.com/authorization-microservice-877629:Authorization-Microservice
+    - docker push 156962844638.dkr.ecr.us-east-1.amazonaws.com/authorization-microservice-877629:authorization-microservice
     - echo Writing definition files
     - echo push completed
     - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $IMAGE_URI > imagedefinitions.json
