@@ -1,7 +1,7 @@
 package com.cts.authorization.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+//import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,7 +27,6 @@ import com.cts.authorization.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 
 @RestController
-@EnableEurekaClient
 @CrossOrigin
 @RequestMapping(value = "/api/v1")
 public class JwtAuthenticationController {
