@@ -3,4 +3,4 @@ VOLUME /tmp
 EXPOSE 80
 ADD target/*.jar app.jar
 ENV JAVA_OPTS=""
-ENTRYPOINT [ "java", "-jar", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
