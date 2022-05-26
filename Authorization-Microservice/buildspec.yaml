@@ -18,7 +18,7 @@ phases:
     - echo $IMAGE_URI
     - mvn clean package -Ddockerfile.skip
     - echo Building the docker image
-    - docker build -tag authorization-microservice .
+    - docker build --tag authorization-microservice .
     - docker tag authorization-sicroservice 156962844638.dkr.ecr.us-east-1.amazonaws.com/authorization-microservice-877629:authorization-microservice
   post_build:
     commands:
